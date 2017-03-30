@@ -4,17 +4,27 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { HeatMapComponent } from './heat-map/heat-map.component';
+import { AgmCoreModule } from "angular2-google-maps/core";
+import { MapService } from "./service/map.service";
+import { SebmGoogleHeatMapDirectiveDirective } from './heat-map/directive/sebm-google-heat-map-directive.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeatMapComponent,
+    SebmGoogleHeatMapDirectiveDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAmHhQIiGXpOyrHejfUx5PyzrDPnjerGFo',
+      libraries: ['visualization']
+    })
   ],
-  providers: [],
+  providers: [MapService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
