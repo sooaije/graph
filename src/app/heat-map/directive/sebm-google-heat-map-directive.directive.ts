@@ -25,7 +25,6 @@ export class SebmGoogleHeatMapDirectiveDirective {
           weight: mapList.weight
         }];
       });
-      console.log(this.heatMapList);
       this.heatMap = new google.maps.visualization.HeatmapLayer({data: this.heatMapList, radius: this.radius});
       this.heatMap.setMap(map);
     });

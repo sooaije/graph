@@ -1,7 +1,7 @@
 export interface Map {
-  road: string,
-  latitude: number,
-  longtitude: number,
-  road_num: number
+  road?: string,
+  latitude?: number,
+  longtitude?: number,
+  road_num?: number
 
 }
