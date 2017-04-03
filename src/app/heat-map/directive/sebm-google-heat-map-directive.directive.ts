@@ -11,6 +11,7 @@ export class SebmGoogleHeatMapDirectiveDirective {
 
   heatMap:any;
   heatMapList:any[] = [];
+  position = "ถนนนางลิ้นจี่";
   constructor(private gmapsApi: GoogleMapsAPIWrapper) { }
 
   ngOnInit(){
@@ -25,7 +26,6 @@ export class SebmGoogleHeatMapDirectiveDirective {
           weight: mapList.weight
         }];
       });
-      console.log(this.heatMapList);
       this.heatMap = new google.maps.visualization.HeatmapLayer({data: this.heatMapList, radius: this.radius});
       this.heatMap.setMap(map);
     });
