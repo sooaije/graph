@@ -1,39 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import {MapService} from "../service/map.service";
-import {GoogleMapsAPIWrapper, MapsAPILoader} from "angular2-google-maps/core";
-import {Road} from "../model/road";
-import {letProto} from "rxjs/operator/let";
-import {Observable} from "rxjs";
+import { MapService} from "../service/map.service";
+import {MapsAPILoader} from "angular2-google-maps/core";
 declare let google: any;
+
 
 @Component({
   selector: 'app-road-name',
   templateUrl: './road-name.component.html',
-  styleUrls: ['./road-name.component.css'],
+  styleUrls: ['./road-name.component.css']
 })
 export class RoadNameComponent implements OnInit {
 
   roadNameList: any[];
   roadLocationList: any[] = [];
-  constructor(private mapService: MapService,private mapsAPILoader:MapsAPILoader) { }
+
+  constructor(private mapService: MapService,private mapsAPILoader:MapsAPILoader) {
+  }
+
 
   ngOnInit() {
     this.mapService.getRoadName().subscribe((res) => {
       this.roadNameList = res;
+      // this.roadNameList.map((roadList) => {
+      //   this.getLocationRoad(roadList);
+      // });
 
-      let i=200;
-      let numEnd = 99+200;
+      let i=0;
       let num = this.roadNameList.length;
       let a = setInterval(() => {
         this.getLocationRoad(this.roadNameList[i]);
-        if(i == numEnd){
+        if(i == (num-1)){
           clearInterval(a);
         }
         i++;
-      },1200);
+      },500);
 
     });
-
+    console.log(this.roadLocationList);
   }
 
   getLocationRoad(roadList){

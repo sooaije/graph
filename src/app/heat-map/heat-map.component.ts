@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MapService} from "../service/map.service";
-import {Map} from "../model/map";
-import {logger} from "codelyzer/util/logger";
 declare let google: any;
+import {MapList} from "../model/map-list";
+
 
 @Component({
   selector: 'app-heat-map',
@@ -10,15 +10,18 @@ declare let google: any;
   styleUrls: ['./heat-map.component.css']
 })
 export class HeatMapComponent implements OnInit {
-  lat: number = 13.758889198303223;
-  lng: number = 100.5344467163086;
-  zoom: number = 12;
-  heatMapList: any[] = [];
+
+
+
   check:boolean = false;
+  map = {lat: 13.758889198303223, lng: 100.5344467163086, zoom: 12};
+  heatMapList: MapList[] = [];
+
 
   constructor(private mapService: MapService) { }
 
   ngOnInit() {
+
     this.mapService.getMapList().subscribe((res) => {
       console.log(res);
       res.map((mapList) => {
@@ -31,4 +34,5 @@ export class HeatMapComponent implements OnInit {
       this.check = true;
     });
   }
+
 }
