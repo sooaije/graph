@@ -18,4 +18,8 @@ export class MapService{
     return this.http.get('http://157.179.8.122:28080/ClouderaImpala/rest/query/road/name').map((res:Response) => res.json().data);
   }
 
+  getDataRoad(){
+    return this.http.get('http://157.179.8.122:28080/ClouderaImpala/rest/query/road/tableRoad').map((res:Response) => res.json().data);
+  }
+
 }

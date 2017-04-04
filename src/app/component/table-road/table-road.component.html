@@ -1,0 +1,17 @@
+
+
+<div *ngIf="check; else loading">
+
+
+  <p-dataTable [value]="datatableList" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+    <p-column field="id" header="Id"></p-column>
+    <p-column field="text" header="Text"></p-column>
+    <p-column field="time" header="Time"></p-column>
+    <p-column field="road" header="Road"></p-column>
+  </p-dataTable>
+</div>
+
+<ng-template #loading>
+  <i class="fa fa-spinner fa-pulse fa-5x fa-fw middle"></i>
+</ng-template>
+
