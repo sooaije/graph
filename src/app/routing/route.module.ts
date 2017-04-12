@@ -7,6 +7,7 @@ import {TableRoadComponent} from "./component/table-road/table-road.component";
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/heat', pathMatch: 'full'},
   { path: 'pi',  component: GrapgPiComponent },
   { path: 'bar',  component: GraphBarComponent },
   { path: 'heat',  component: HeatMapComponent },

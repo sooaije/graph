@@ -18,6 +18,8 @@ export class TableRoadComponent implements OnInit {
    this.showTable();
  }
 
+
+
  showTable(){
 
    this.mapService.getDataRoad().subscribe(
@@ -34,8 +36,8 @@ export class TableRoadComponent implements OnInit {
          this.check = true;
        }
       });
+   }
 
-     }
 }
 
 

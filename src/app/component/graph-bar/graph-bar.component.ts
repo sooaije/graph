@@ -12,7 +12,8 @@ export class GraphBarComponent implements OnInit {
   data: any;
   labels:any[] = [];
   dataGraph:any[] = [];
-
+  options:any;
+  check:boolean = false;
   constructor(private mapService:MapService) {
 
   }
@@ -39,12 +40,13 @@ export class GraphBarComponent implements OnInit {
               data: this.dataGraph
             }],
         }
+        if(this.dataGraph.length > 0){
+          this.check = true;}
+      });
 
-      }
-    );
+    this.options = {
 
-
+    };
   }
-
 }
 

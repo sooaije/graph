@@ -11,7 +11,6 @@ export class SebmGoogleHeatMapDirectiveDirective {
 
   heatMap:any;
   heatMapList:any[] = [];
-  position = "ถนนนางลิ้นจี่";
   constructor(private gmapsApi: GoogleMapsAPIWrapper) { }
 
   ngOnInit(){
