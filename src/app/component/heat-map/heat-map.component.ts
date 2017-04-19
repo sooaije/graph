@@ -4,6 +4,7 @@ import {MapList} from "../../model/map-list";
 import {MapService} from "../../service/map.service";
 
 
+
 @Component({
   selector: 'app-heat-map',
   templateUrl: 'heat-map.component.html',

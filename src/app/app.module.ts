@@ -16,7 +16,11 @@ import { GrapgPiComponent } from './component/grapg-pi/grapg-pi.component';
 import { ChartModule } from "primeng/components/chart/chart";
 import { DataTableModule } from "primeng/components/datatable/datatable";
 import { TableRoadComponent } from "./component/table-road/table-road.component";
-import { RouteModule } from "./route.module";
+import { RouteModule } from "./routing/route.module";
+import { ThaiLocationComponent } from './component/thai-location/thai-location.component';
+import {ButtonModule} from "primeng/components/button/button";
+import { MarkerThailocationComponent } from './component/marker-thailocation/marker-thailocation.component';
+import { SebmGoogleMapMarkerClusterDirective } from './component/marker-thailocation/directive/sebm-google-map-marker-cluster.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,10 @@ import { RouteModule } from "./route.module";
     RoadNameComponent,
     GraphBarComponent,
     TableRoadComponent,
-    GrapgPiComponent
+    GrapgPiComponent,
+    ThaiLocationComponent,
+    MarkerThailocationComponent,
+    SebmGoogleMapMarkerClusterDirective,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,8 @@ import { RouteModule } from "./route.module";
     }),
     ChartModule,
     DataTableModule,
-    RouteModule
+    RouteModule,
+    ButtonModule
   ],
   providers: [MapService,GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]

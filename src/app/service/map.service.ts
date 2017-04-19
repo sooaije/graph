@@ -8,18 +8,37 @@ export class MapService{
 
   constructor(private http:Http) {
   }
+    // getMapList(){
+  //   return this.http.get('http://157.179.8.122:28080/ClouderaImpala/rest/query/road').map((res:Response) => res.json().data);
+  //   // return this.http.get('../src/app/data/map.json').map((res:Response) => res.json().data);
+  // }
+  //
+  // getRoadName(){
+  //   return this.http.get('http://157.179.8.122:28080/ClouderaImpala/rest/query/road/name').map((res:Response) => res.json().data);
+  // }
+  //
+  getDataRoad(){
+    return this.http.get('http://157.179.16.239:8080/ClouderaImpala/rest/query/road/tableRoad').map((res:Response) => res.json().data);
+  }
 
   getMapList(){
-    return this.http.get('http://157.179.8.122:28080/ClouderaImpala/rest/query/road').map((res:Response) => res.json().data);
+    return this.http.get('http://157.179.16.239:8080/ClouderaImpala/rest/query/road').map((res:Response) => res.json().data);
     // return this.http.get('../src/app/data/map.json').map((res:Response) => res.json().data);
   }
 
   getRoadName(){
-    return this.http.get('http://157.179.8.122:28080/ClouderaImpala/rest/query/road/name').map((res:Response) => res.json().data);
+    return this.http.get('http://157.179.16.239:8080/ClouderaImpala/rest/query/road/name').map((res:Response) => res.json().data);
   }
 
-  getDataRoad(){
-    return this.http.get('http://157.179.8.122:28080/ClouderaImpala/rest/query/road/tableRoad').map((res:Response) => res.json().data);
+  getDistrict(){
+    return this.http.get('./src/app/data/District.json').map((res:Response) => res.json().data);
   }
 
+  getProvince(){
+    return this.http.get('./src/app/data/Province.json').map((res:Response) => res.json().data);
+  }
+
+  getLocation(){
+    return this.http.get('http://localhost:28080/ClouderaImpala/rest/query/text/provinc').map((res:Response) => res.json().data);
+  }
 }

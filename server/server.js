@@ -3,7 +3,6 @@ const path = require('path');
 var httpProxy = require('http-proxy');
 var apiProxy = httpProxy.createProxyServer();
 
-var prodServer = process.env.API_HOST;
 
 // Constants
 const PORT = 8000;
