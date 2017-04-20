@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http,Response} from "@angular/http";
 import {Map} from "../model/map";
 import {Observable} from "rxjs";
+import {TagInput} from "../model/tag-input";
 
 @Injectable()
 export class MapService{
@@ -38,7 +39,17 @@ export class MapService{
     return this.http.get('./src/app/data/Province.json').map((res:Response) => res.json().data);
   }
 
-  getLocation(){
-    return this.http.get('http://localhost:28080/ClouderaImpala/rest/query/text/provinc').map((res:Response) => res.json().data);
+  getLocation(items:TagInput[]){
+    let baseUrl = 'http://localhost:28080/ClouderaImpala/rest/query';
+    baseUrl += '/text/provinc';
+    for (let i = 0; i < items.length; i++) {
+      if(i == 0){
+        baseUrl += '?q='+items[i].value;
+      }else{
+        baseUrl += '&q='+items[i].value;
+      }
+    }
+    console.log(baseUrl);
+    return this.http.get(baseUrl).map((res:Response) => res.json().data);
   }
 }

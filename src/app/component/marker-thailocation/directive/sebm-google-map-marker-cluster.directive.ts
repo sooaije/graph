@@ -13,6 +13,7 @@ export class SebmGoogleMapMarkerClusterDirective {
   @Input() location:Marker[];
   @Input() title:any[];
   result:any[] = [];
+  markerCluster;
 
   initMarkers(){
     for (let i=0;i < this.location.length;++i){
@@ -21,17 +22,25 @@ export class SebmGoogleMapMarkerClusterDirective {
     return this.result;
   }
 
+  clear(){
+    this.result = [];
+    this.markerCluster.clearMarkers();
+  }
+
   constructor (private gmapsApi: GoogleMapsAPIWrapper) {
   }
 
-  ngOnInit(){
+  ngOnChanges(){
     this.initializeMap();
   }
 
   initializeMap(){
     this.gmapsApi.getNativeMap().then(map => {
+      if(this.markerCluster){
+        this.clear();
+      }
       let googleMarkers = this.initMarkers();
-      new MarkerClusterer( map, googleMarkers, {imagePath: 'https://googlemaps.github.io/js-marker-clusterer/images/m'});
+      this.markerCluster = new MarkerClusterer( map, googleMarkers, {imagePath: 'https://googlemaps.github.io/js-marker-clusterer/images/m'});
     });
   }
 

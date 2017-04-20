@@ -18,9 +18,11 @@ import { DataTableModule } from "primeng/components/datatable/datatable";
 import { TableRoadComponent } from "./component/table-road/table-road.component";
 import { RouteModule } from "./routing/route.module";
 import { ThaiLocationComponent } from './component/thai-location/thai-location.component';
-import {ButtonModule} from "primeng/components/button/button";
+import { ButtonModule} from "primeng/components/button/button";
 import { MarkerThailocationComponent } from './component/marker-thailocation/marker-thailocation.component';
 import { SebmGoogleMapMarkerClusterDirective } from './component/marker-thailocation/directive/sebm-google-map-marker-cluster.directive';
+import { TagInputModule } from "ng2-tag-input";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { SebmGoogleMapMarkerClusterDirective } from './component/marker-thailoca
     ChartModule,
     DataTableModule,
     RouteModule,
-    ButtonModule
+    ButtonModule,
+    TagInputModule,
+    BrowserAnimationsModule
   ],
   providers: [MapService,GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]

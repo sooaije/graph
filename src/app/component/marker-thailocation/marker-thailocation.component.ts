@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MapService} from "../../service/map.service";
 import {Mapthailocation} from "../../model/mapthailocation";
 import {Marker} from "../../model/marker";
+import {ButtonModule} from 'primeng/primeng';
+import {TagInput} from "../../model/tag-input";
 
 
 @Component({
@@ -15,11 +17,16 @@ export class MarkerThailocationComponent implements OnInit {
   markList:Marker[] = [];
   title:any[] = [];
   check:boolean = false;
-
+  items:TagInput[] = [];
   constructor(private mapService: MapService) { }
 
   ngOnInit() {
-    this.mapService.getLocation().subscribe((res) => {
+  }
+
+  getMarkerCluster(items:TagInput[]){
+    this.markList = [];
+    this.title = [];
+    this.mapService.getLocation(items).subscribe((res) => {
       this.locationList = res;
       this.locationList.map((local:Mapthailocation) => {
         this.markList = [...this.markList , { lat:local.subdistrictlat,lng:local.subdistrictlong }];
@@ -29,5 +36,12 @@ export class MarkerThailocationComponent implements OnInit {
     });
   }
 
+  onItemAdded(){
+    this.getMarkerCluster(this.items);
+  }
+
+  onItemRemoved(){
+    this.getMarkerCluster(this.items);
+  }
 }
 
