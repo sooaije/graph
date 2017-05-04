@@ -3,6 +3,7 @@ import {MapService} from "../../service/map.service";
 import {Tablelist} from "../../model/table-list";
 
 
+
 @Component({
   selector: 'app-table-road',
   templateUrl: 'table-road.component.html',
@@ -26,6 +27,7 @@ export class TableRoadComponent implements OnInit {
      (res:Tablelist[]) => {
        res.map((mapList) => {
          this.datatableList = [...this.datatableList, {
+
            id: mapList.id,
            text: mapList.text,
            time: mapList.time,

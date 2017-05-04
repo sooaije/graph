@@ -40,7 +40,7 @@ export class MapService{
   }
 
   getLocation(items:TagInput[]){
-    let baseUrl = 'http://localhost:28080/ClouderaImpala/rest/query';
+    let baseUrl = 'http://157.179.16.239:8080/ClouderaImpala/rest/query';
     baseUrl += '/text/provinc';
     for (let i = 0; i < items.length; i++) {
       if(i == 0){
